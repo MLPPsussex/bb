@@ -1,0 +1,36 @@
+<html>
+  <body>
+    <p> Making Post 1 </p>
+<script>
+const bodyData={
+"cid": 1,
+"title": "Test topic",
+"content": "This is the test topic's content",
+"timestamp": 556084800000,
+"tags": [
+"test",
+"topic"
+]
+}
+const key='c562323d-b36a-43bf-9af9-689c714bcf06'
+const option = {
+  method: 'POST',
+  headers: {
+    'content-type': 'application/json',
+    authorization: `Bearer `+key
+  },
+  body: JSON.stringify(bodyData)
+};
+
+ fetch(
+   `https://aignite.nodebb.org/api/v3/topics/', option
+)
+.then(response => response.json())
+.then( data=> {
+  alert("Api")
+}
+      )
+.catch(error => alert('err='+error));
+</script>
+  </body>
+</html>
